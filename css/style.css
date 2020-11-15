@@ -43,9 +43,6 @@ a:hover, a:focus {
 	text-decoration: none;
 	color: #7bc3d1;
 }
-ul, ol {
-	list-style: none;
-}
 .clearfix:after {
 	visibility: hidden;
 	display: block;
@@ -64,7 +61,7 @@ ul, ol {
 	display: block;
 }
 ul, ol {
-	padding: 0;
+	padding: 10;
 	webkit-padding: 0;
 	moz-padding: 0;
 }
@@ -173,7 +170,7 @@ hr {
 	padding: 100px 0;
 	text-align: center;
 	color: #fff;
-	background: url(../img/intro-bg.jpg) no-repeat center top;
+	background: url(../img/bckg.jpg) no-repeat center top;
 	background-color: #7bc3d1;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -197,6 +194,20 @@ hr {
 	height: 200px;
 	display: inline-block;
 }
+#cv img {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+#cv b {
+	color: #629ca7;
+	font-size: 20px;
+}
+#cv bold {
+	font-weight: bold;
+}
+
 #about p {
 	margin-top: 20px;
 	margin-bottom: 30px;
@@ -204,14 +215,10 @@ hr {
 /* Skills Section */
 #skills {
 	padding: 100px 0;
-	background: #7bc3d1;
+	background: white;
+	margin-left: 10px;
 }
-#skills h2 {
-	color: #fff;
-}
-#skills hr {
-	background: rgba(255,255,255,0.3);
-}
+
 #skills .skill {
 	margin-bottom: 40px;
 	text-align: center;
