@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tamas Gyorfi - MBA, PMP</title>
+<meta name="description" content="">
+<meta name="author" content="Tamas Gyorfi">
+
+<!-- Stylesheet
+    ================================================== -->
+
+<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
+
+
+<link rel="stylesheet" type="text/css"  href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/common.js"></script>
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script type="text/javascript">
+  
+  function createMessage() {
+    var sorryMsg = document.createElement("div");
+    sorryMsg.innerHTML = `
+      <p>I'm sorry, the page you were looking for does not exist.</br> Try navigating to the front page</a></p>
+      <a href="${BASE_URL}" class="btn btn-default btn-lg page-scroll">Home</a>
+    `;    
+    document.getElementById("intro").appendChild(sorryMsg);
+  }
+
+</script>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="createMessage()">
+
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="container">
+      <div class="row">
+        <div class="intro-text" id="intro">
+          <h1>Hello, I'm <span class="name">Tamas Gyorfi</span></h1>
+          <p><span class="name">MBA, PMP, </span> Engineering and delivery management</p>
+      </div>
+    </div>
+  </div>
+</header>
