@@ -7,50 +7,16 @@
 <meta name="description" content="">
 <meta name="author" content="Tamas Gyorfi">
 
-<!-- Stylesheet
-    ================================================== -->
-
-<script type="text/javascript" src="./js/common.js"></script>
-
-<link rel="stylesheet" type="text/css"  href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css">
-
-
-<link rel="stylesheet" type="text/css"  href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
-
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 <script type="text/javascript">
   
-  function createMessage() {
-    var sorryMsg = document.createElement("div");
-    sorryMsg.innerHTML = `
-      <p>I'm sorry, the page you were looking for does not exist.</br> Try navigating to the front page.</p>
-      <a href="${BASE_URL}" class="btn btn-default btn-lg page-scroll">Home</a>
-    `;    
-    document.getElementById("intro").appendChild(sorryMsg);
+  function redir() {
+    window.location.replace("https://tamasgyorfi.github.io");
   }
 
 </script>
 
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="createMessage()">
-
-<!-- Header -->
-<header id="header">
-  <div class="intro">
-    <div class="container">
-      <div class="row">
-        <div class="intro-text" id="intro">
-          <h1><span class="name">Whoops... That didn't work.</span></h1>
-      </div>
-    </div>
-  </div>
-</header>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="redir()">
+</body>
+</html>
