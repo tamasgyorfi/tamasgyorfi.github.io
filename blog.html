@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tamas Gyorfi - MBA, PMP - Blog</title>
+	<meta name="description" content="">
+	<meta name="author" content="Tamas Gyorfi">
+
+	<link rel="stylesheet" type="text/css"  href="css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"/>
+
+	<link rel="stylesheet" type="text/css"  href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/blog.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+	
+	<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="loadPosts()">
+		<header id="header">
+		  <div class="intro">
+		    <div class="container">
+		      <div class="row">
+		        <div class="intro-text">
+		          <h1><span class="name">Tamas Gyorfi</span> - Blog</h1>
+		      </div>
+		    </div>
+		  </div>
+		</header>
+		<div id="aggregator">
+		</div>
+	
+		<div class="modalcontainer">		
+			<div class="modal show:false" id="modalQuickView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+			  aria-hidden="true">
+				<div class="modal-dialog modal-xl" role="document">
+			    	<div class="modal-content">
+			    		<div class="modal-header">
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          						<span aria-hidden="true">&times;</span>
+        					</button>
+      					</div>
+			    		<div class="modal-body">
+			    			<div class="about-text" id="blogpane">
+				       			<div id="postTitle">
+				       			</div>
+
+				       			<div id="postPublished">
+				       			</div>
+
+				       			<br />
+				       			<br />
+
+				       			<div id="postHeadline">
+				       			</div>
+
+				       			<br />
+
+				       			<div id="postBody">
+				       			</div>
+
+				       			<br />
+				       			<br />
+
+				       			<div id="postCategories">
+				       				<p>Categories:</p>
+				       			</div>
+
+				       			<br />
+				       			<div class="modal-footer">
+				       				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				       			</div>
+				       		</div>
+			    		</div>
+			  		</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

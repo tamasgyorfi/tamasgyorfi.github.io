@@ -207,7 +207,42 @@ hr {
 #cv bold {
 	font-weight: bold;
 }
+#blog b {
+	color: #629ca7;
+	font-size: 20px;
+}
+#blog bold {
+	font-weight: bold;
+}
+#blog div {
+	background-color: #e6f2ff;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+	border-radius: 5px;
+
+	font-size: 13px;
+}
+#blogpane b {
+	color: #629ca7;
+	font-size: 20px;
+}
+#blogpane div {
+	font-size: 13px;
+}
+#blogpane bold {
+	font-weight: bold;
+}
+#blogpane h1 {
+	font-size: 30px;
+	font-weight: bold;
+	color: #003380;
+}
 #about p {
 	margin-top: 20px;
 	margin-bottom: 30px;
@@ -218,7 +253,9 @@ hr {
 	background: white;
 	margin-left: 10px;
 }
-
+.modalcontainer {
+	z-index: -1;
+}
 #skills .skill {
 	margin-bottom: 40px;
 	text-align: center;
@@ -227,6 +264,11 @@ hr {
 #skills .skill h4 {
 	font-weight: 600;
 	color: #fff;
+}
+.notfound {
+	text-align: center;
+	opacity: 0.5;	
+	background:  #e6e6e6;
 }
 .chart {
 	position: relative;
