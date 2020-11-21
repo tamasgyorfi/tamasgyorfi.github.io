@@ -9,6 +9,19 @@
 		measurementId: "G-6LDMLNN99Q"
 	};
 
+	function addCategories(parent, d) {
+		if (d.categories) {
+		  		d.categories.split(",").map(s=>{
+
+		  			var elem = document.createElement("div");
+		  			elem.className = "d-inline p-3 mr-1 bg-dark text-white";
+		  			elem.innerHTML = s;
+
+		  			document.getElementById(parent).appendChild(elem);
+		  		});
+		  	}
+	}
+
 		function showEntry(d) {
 		  	var titleElement = document.createElement('h1');
 		  	titleElement.innerHTML = d.data().title.toUpperCase();
@@ -27,15 +40,7 @@
 		  	document.getElementById("postHeadline").appendChild(headlineElement);
 		  	document.getElementById("postBody").appendChild(bodyElement);
 
-		  	if (d.data().categories) {
-		  		d.data().categories.split(",").map(s=>{
-		  			var elem = document.createElement("div");
-		  			elem.className = "d-inline p-3 mr-1 bg-dark text-white";
-		  			elem.innerHTML = s;
-
-		  			document.getElementById("postCategories").appendChild(elem);
-		  		});
-		  	}
+		  	addCategories("postCategories", d.data());
 		}
 
 		  function clearPreviousEntries() {
@@ -54,7 +59,7 @@
 		  }
 
 		  function openNewTab(d) {
-		  	window.open(BASE_URL + d.id);
+		  	window.open("story?id="+d.id);
 		  }
 
 		  function createPostDiv(doc, index) {
@@ -89,23 +94,34 @@
 		  	firebase.initializeApp(firebaseConfig);
 		  	firebase.analytics();
 
-		  	firebase.firestore().collection('blog-posts').get()
+		  	firebase.firestore().collection('blog-posts').where("published", "==", "true").get()
    							.then(querySnapshot => {
       							querySnapshot.docs.map((doc, index) => {
-      								if (doc.data().published && doc.data().published === "true") {
-	     								var element = createPostDiv(doc, index);
-	   									document.getElementById("aggregator").appendChild(element);
-	    									
-	    								document.getElementById(`btn_q_${index}`).onclick = function() {
-	    									readerpaneOn(doc);
-	    								}
+	     							var element = createPostDiv(doc, index);
+	   								document.getElementById("aggregator").appendChild(element);
+	    								
+	    							document.getElementById(`btn_q_${index}`).onclick = function() {
+	    								readerpaneOn(doc);
+	    							}
 
-	    								document.getElementById(`btn_v_${index}`).onclick = function() {
-	    									openNewTab(doc);
-	    								}
+	    							document.getElementById(`btn_v_${index}`).onclick = function() {
+	    								openNewTab(doc);
 	    							}
 						      });
     						});
+    		}
+
+    		function loadPostById(id) {
+    			firebase.initializeApp(firebaseConfig);
+		  		firebase.analytics();	
+
+		  		const qsnap =  firebase.firestore()
+    									.collection('blog-posts')
+    									.where(firebase.firestore.FieldPath.documentId(), "==", id)
+    									.where("published", "==", "true")
+    									.get();
+
+		  		return qsnap;
     		}
 
 

@@ -247,6 +247,23 @@ hr {
 	margin-top: 20px;
 	margin-bottom: 30px;
 }
+
+#story div {
+	font-size: 13px;
+	text-align: justify;
+  	text-justify: inter-word;
+  	padding-top: 15px;
+  	padding-bottom: 15px;
+}
+
+#story b {
+	color: #629ca7;
+	font-size: 20px;
+}
+
+#story bold {
+	font-weight: bold;
+}
 /* Skills Section */
 #skills {
 	padding: 100px 0;
