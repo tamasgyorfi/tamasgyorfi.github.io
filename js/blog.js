@@ -6,7 +6,7 @@
 		storageBucket: "blogserver-tamasgyorfi.appspot.com",
 		messagingSenderId: "46995779231",
 		appId: "1:46995779231:web:2faea230a3df1736317caa",
-		measurementId: "G-6LDMLNN99Q"
+		measurementId: "G-S6PLM1SL06"
 	};
 
 	function addCategories(parent, d) {
