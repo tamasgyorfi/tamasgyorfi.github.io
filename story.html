@@ -43,11 +43,11 @@
 			var aggregator = document.getElementById("story");
 
 			var lead = document.createElement("div");
-			lead.innerHTML = `<p><b>${doc.headline}</b><br /></p>`;
+			lead.innerHTML = `<b>${doc.headline}</b><br />`;
 			aggregator.appendChild(lead);
 
 			var body = document.createElement("div");
-			body.innerHTML = `<p>${doc.body}</p>`;
+			body.innerHTML = `${doc.body}`;
 			aggregator.appendChild(body);
 
 			addCategories("cat", doc);

@@ -63,19 +63,24 @@
 		  }
 
 		  function createPostDiv(doc, index) {
+
+		  	var options = { weekday: 'long', year: 'numeric',
+                month: 'long', day: 'numeric' };
+
+
 		  	var newElement = document.createElement('div');
-    		newElement.id = doc.tile;
+    		newElement.id = "post"+index;
 
     		var innerHTMLTemplate = `
     			<div class="container" id="blog">
                 	<div class="row" >
                   		<div class="col-md-3" >
-                    		<img src="${doc.data().headlineImg}" width="200" height="200" />
+                    		<img src="${doc.headlineImg}" width="200" height="200" />
                   		</div>
                   		<div class="col-md-7">
-                  			<p><b>${doc.data().title}</b></p>
-                  			<p><strong>Published on: </strong><i>${doc.data().date}</i></p>
-                  			<p>${doc.data().headline.substring(0, 400)}</p>
+                  			<p><b>${doc.title}</b></p>
+                  			<p><strong>Published on: </strong><i>${doc.date.toLocaleDateString('en-EN', options)}</i></p>
+                  			<p>${doc.headline.substring(0, 400)}[...]</p>
                   			<button type="button" class="btn btn-primary" id="btn_q_${index}">
   								Quick view
 							</button>
@@ -96,20 +101,37 @@
 
 		  	firebase.firestore().collection('blog-posts').where("published", "==", "true").get()
    							.then(querySnapshot => {
-      							querySnapshot.docs.map((doc, index) => {
-	     							var element = createPostDiv(doc, index);
-	   								document.getElementById("aggregator").appendChild(element);
-	    								
-	    							document.getElementById(`btn_q_${index}`).onclick = function() {
-	    								readerpaneOn(doc);
-	    							}
+   								var documents = [];
+      							querySnapshot.docs.forEach((doc, index) => {
+      								documents.push({
+      									title: doc.data().title,
+      									body: doc.data().body,
+      									categories: doc.data().categories,
+      									date: new Date(doc.data().date),
+      									headline: doc.data().headline,
+      									headlineImg: doc.data().headlineImg,
+      									published: doc.data().published
+      								});
+      							});
 
-	    							document.getElementById(`btn_v_${index}`).onclick = function() {
-	    								openNewTab(doc);
-	    							}
-						      });
+      							documents.sort(function(a,b){
+ 									 return b.date - a.date;
+								});
+
+	     						documents.forEach((doc, index) => {
+						    		var element = createPostDiv(doc, index);
+						   			document.getElementById("aggregator").appendChild(element);
+						    								
+									document.getElementById(`btn_q_${index}`).onclick = function() {
+										readerpaneOn(doc);
+									}
+
+						    		document.getElementById(`btn_v_${index}`).onclick = function() {
+						    			openNewTab(doc);
+									}
+					    		});
     						});
-    		}
+    	}
 
     		function loadPostById(id) {
     			firebase.initializeApp(firebaseConfig);
