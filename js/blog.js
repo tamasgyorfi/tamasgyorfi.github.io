@@ -9,6 +9,9 @@
 		measurementId: "G-S6PLM1SL06"
 	};
 
+	var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+
 	function addCategories(parent, d) {
 		if (d.categories) {
 		  		d.categories.split(",").map(s=>{
@@ -24,23 +27,23 @@
 
 		function showEntry(d) {
 		  	var titleElement = document.createElement('h1');
-		  	titleElement.innerHTML = d.data().title.toUpperCase();
+		  	titleElement.innerHTML = d.title.toUpperCase();
 
 		  	var publishedElement = document.createElement('p');
-		  	publishedElement.innerHTML = `<bold>Published on: </bold><i>${d.data().date}</i>`;
+		  	publishedElement.innerHTML = `<bold>Published on: </bold><i>${d.date.toLocaleDateString('en-EN', options)}</i>`;
 
 		  	var headlineElement = document.createElement('p');
-		  	headlineElement.innerHTML = `<b>${d.data().headline}</b>`;
+		  	headlineElement.innerHTML = `<b>${d.headline}</b>`;
 
 		  	var bodyElement = document.createElement('p');
-		  	bodyElement.innerHTML = d.data().body;
+		  	bodyElement.innerHTML = d.body;
 
 		  	document.getElementById("postTitle").appendChild(titleElement);
 		  	document.getElementById("postPublished").appendChild(publishedElement);
 		  	document.getElementById("postHeadline").appendChild(headlineElement);
 		  	document.getElementById("postBody").appendChild(bodyElement);
 
-		  	addCategories("postCategories", d.data());
+		  	addCategories("postCategories", d);
 		}
 
 		  function clearPreviousEntries() {
@@ -63,13 +66,8 @@
 		  }
 
 		  function createPostDiv(doc, index) {
-
-		  	var options = { weekday: 'long', year: 'numeric',
-                month: 'long', day: 'numeric' };
-
-
 		  	var newElement = document.createElement('div');
-    		newElement.id = "post"+index;
+    		newElement.id = doc.title;
 
     		var innerHTMLTemplate = `
     			<div class="container" id="blog">
@@ -104,6 +102,7 @@
    								var documents = [];
       							querySnapshot.docs.forEach((doc, index) => {
       								documents.push({
+      									id: doc.id,
       									title: doc.data().title,
       									body: doc.data().body,
       									categories: doc.data().categories,
