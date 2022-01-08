@@ -5,6 +5,8 @@ body, html {
 	color: #656c6d;
 	width: 100% !important;
 	height: 100% !important;
+	max-width: 100%;
+    	overflow-x: hidden;
 }
 h1 {
 	font-weight: 700;
